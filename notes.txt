@@ -1,0 +1,43 @@
+8086 Microprocessor Notes:
+
+CISC Architecture!
+20-bit address bus (Up tp 1MB memory), 16-bit data bus
+Segmented memory architecture, addressed using both a segment register and an offset.
+Segment register points to the start of a segment, offset specifies location of a byte in the segment.
+
+Two execution units: Execution Unit(EU) and the bus interface unit (BIU)
+Execution Unit: Executes instructions
+Bus Interface Unit: Fetches instructions and decodes them. Manages data transfer between processor and memory/ I/O
+
+Registers: General-Purpose, segment, special
+General-Purpose: Stores data, performs arithmetic and logic operations
+Segment: Addresses memory segments
+Special: Flags (Status info from previous operation), Intruction Pointer
+
+14 internal Registers
+8086 is pipelined!
+
+Memory Segmentation:
+Addresses 1MB of memory by segmenting it into 16 64kB segments (16bit), only 4 segment registers at a time
+
+Bus Interface Unit:
+Generates the 20bit physical address
+Fetches instructions from memory
+Transfer data to/from memory/ I/O
+Maintains the 6-byte pre-fetch instruction queue (pipelining stuff)
+
+Contains 4 Segment Registers, Instruction Pointer, pre-fetch queue, and Address Generation Circuit
+
+20bit Address = Segment Address x 0x10 + Offset(IP)
+
+Instruction Pointer(IP):
+16-bit register that holds the offset of the next instructions in the Code Segment
+Gets incremented after every instruction byte is fetched, gets a new value when a branch occurs
+
+Code Segment Register(CS): 16-bit register that holds the base address for the Code segment
+
+Data Segment Register(DS): 16-bit register that holds the base address for the Data Segment
+
+Stack Segment Register(SS): 16-bit register that holds the base address for the Stack Segment
+
+Extra Segment Register(ES): 16-bit register that holds the base address for the extra segment
